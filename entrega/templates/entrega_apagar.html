@@ -1,0 +1,25 @@
+{% extends 'principal.html' %}
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <h3 class="title is-size-3">Dados do Atendimento</h3>
+                    <p class="p-2 mt-2"><strong>Horário: </strong> {{ object.horario }} </p>
+                    <p class="p-2 mt-2"><strong>Usuario: </strong> {{ object.usuario }} </p>
+                    <p class="p-2 mt-2"><strong>Sala: </strong> {{ object.sala }} </p>
+                    <form method="POST">
+                         {% csrf_token %}
+                        <p> Confirma a exclusão da entrega? </p>
+                        <br/>
+                        <button class="button is-link is-primary" type="submit">Apagar</button>
+                        <button class="button is-danger is-pulled-right" type="reset">
+                            <a href="{% url 'entregas' %}">Cancelar</a>
+                        </button>
+                    </form>
+                </div>
+                </div>
+            </div>
+    </section>
+{% endblock %}

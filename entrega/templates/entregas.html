@@ -1,0 +1,74 @@
+
+{% extends "principal.html" %}
+{% load static %}
+{% load bulma_tags %}
+{% block content %}
+    <section class="section has-background-link-light">
+        <div class="container">
+            <form id="" action="" method="GET">
+                <div class="field is-grouped is-flex is-align-items-center is-flex-wrap-wrap">
+                    <label class="label p-2 mt-2"> </label>
+                    <div class="control is-expanded">
+                        {{ form.usuario|bulma }}
+                    </div>
+                    <label class="label p-2 mt-2"> </label>
+                    <div class="control is-expanded">
+                        {{ form.sala|bulma }}
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-link">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {% if object_list %}
+                <div style="text-align: center;"><h1 class="subtitle is-size-4">Entregas Cadastradas</h1></div>
+                <div class="table">
+                    <table class="table is-table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th class="has-text-centered">Horário</th>
+                                <th class="has-text-centered">Usuario</th>
+                                <th class="has-text-centered">Sala</th>
+                                <th class="has-text-centered" style="width: 100px;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for entrega in object_list %}
+                         <tr>
+                                <td> {{ entrega.horario }} </td>
+                                <td> {{ entrega.usuario }} </td>
+                                <td> {{ entrega.sala }} </td>
+
+                                <td class="has-text-centered is-flex is-flex-wrap-nowrap is-justify-content-center">
+
+                                    <a href="{% url 'entrega_editar' entrega.pk %}">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                    </a>
+                                    <a href="{% url 'entrega_apagar' entrega.pk %}">
+                                        <span class="icon">
+                                            <i class="far fa-trash-alt"></i>
+                                        </span>
+                                    </a>
+
+
+                                    <a href="{% url 'entrega_exibir' entrega.pk %}">
+                                        <span class="icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            {% include "paginator.html" %}
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}

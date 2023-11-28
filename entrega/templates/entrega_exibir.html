@@ -1,0 +1,19 @@
+{% extends 'principal.html' %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-mobile">
+                <div class="column is-half is-offset-one-quarter">
+                    <h3 class="title is-size-3">Dados da Entrega</h3>
+                    <p class="p-2 ml-2"><strong>Horário: </strong>  {{ entrega.horario }} </p>
+                    <p class="p-2 ml-2"><strong>Usuario: </strong>  {{ entrega.usuario }} </p>
+                    <p class="p-2 ml-2"><strong>Local da Sala: </strong> {{ entrega.sala }} </p>
+
+                    <button type="reset" class="button is-link is-pulled-right">
+                        <a href="{% url 'entregas' %}" style="color: white" >Voltar</a>
+                    </button>
+                </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

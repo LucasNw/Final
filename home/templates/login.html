@@ -1,0 +1,20 @@
+{% extends "principal.html" %}
+{% load static %}
+{% load bulma_tags %}
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="column is-mobile">
+                <div class="column is-half is-off-set-one-quarter">
+                    <h3 class="title is-size-3">{{ titulo }}</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|bulma }}
+                        <button class="button is-link is-primary" type="submit">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}

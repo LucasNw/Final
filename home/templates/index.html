@@ -1,0 +1,51 @@
+{% extends "principal.html" %}
+{% block content %}
+
+ <section>
+        <div class="hero-body has-background-primary-dark">
+            <div class="container has-text-centered">
+
+                <p class="title is-size-1">Sobre o Sistema</p>
+            </div>
+
+            <div class="section">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column notification is-primary mb-5 mr-3">
+                            <span class="delete"></span>
+                            <h1># Quem Somos</h1>
+
+                            Somos uma empresa líder em tecnologia que fornece soluções de segurança de alta qualidade
+                            para empresas e indivíduos.Trabalhado incansavelmente
+                            para fornecer as melhores soluções de segurança para nossos clientes.
+
+                            Nossa equipe é composta por especialistas altamente qualificados em segurança e tecnologia,
+                            que trabalham juntos para fornecer soluções personalizadas para nossos clientes. Nós nos
+                            orgulhamos de nossa abordagem centrada no cliente e estamos sempre procurando maneiras de
+                            melhorar nossos serviços.
+
+                            Oferecemos uma ampla gama de produtos e serviços, incluindo sistemas de controle de acesso,
+                            fechaduras eletrônicas, chaves inteligentes e muito mais. Todos os nossos produtos são
+                            projetados com a mais alta qualidade e segurança em mente.
+                        </div>
+                        <div class="column notification is-primary mb-5 mr-3">
+                            <span class="delete"></span>
+                            <p>Um sistema de controle de chaves é um conjunto de procedimentos e dispositivos que ajudam
+                                a gerenciar o acesso a áreas restritas ou equipamentos. O objetivo principal é garantir
+                                que apenas pessoas autorizadas tenham acesso a esses recursos. Existem vários tipos de
+                                sistemas de controle de chaves, desde os mais simples até os mais sofisticados.</p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% block registros %}
+        {% include "registros.html" %}
+    {% endblock %}
+
+{% endblock %}

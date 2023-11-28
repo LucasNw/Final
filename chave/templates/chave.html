@@ -1,0 +1,63 @@
+{% extends 'principal.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="section has-background-link-light">
+        <div class="container">
+            <form action="" method="GET">
+                <div class="field is-grouped is-flex is-align-items-center is-flex-wrap-wrap">
+                    <label class="label p-2 mt-2">Nome da Chave: </label>
+                    <div class="control is-expanded">
+                        <input class="input" type="text" name="buscar" value="{{ request.GET.buscar }}"
+                               placeholder="Digite o nome do chave">
+                    </div>
+                    <div class="control">
+                        <button type="submit" class="button is-link">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {% if object_list %}
+                <div style="text-align: center;"><h1 class="subtitle is-size-4">Chaves Cadastradas</h1></div>
+                <div class="table">
+                    <table class="table is-table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th class="has-text-centered">Sala</th>
+                                <th class="has-text-centered">Numero de copias</th>
+                                <th class="has-text-centered">Status da Chave</th>
+                                <th class="has-text-centered" style="width: 100px;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for chave in object_list %}
+
+                                <tr>
+                                    <td> {{ chave.sala }} </td>
+                                    <td> {{ chave.numCopia }} </td>
+                                    <td> {{ chave.status }} </td>
+                                    <td class="has-text-centered is-flex is-flex-wrap-nowrap is-justify-content-center">
+                                        <a href="{% url 'chave_editar' chave.pk %}">
+                                            <span class="icon">
+                                                <i class="fas fa-edit"></i>
+                                            </span>
+                                        </a>
+                                        <a href="{% url 'chave_apagar' chave.pk %}">
+                                            <span class="icon">
+                                                <i class="far fa-trash-alt"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                        <h2>Não exixtem chaves cadastradas</h2>
+                    {% endif %}
+                </div>
+             {% include "paginator.html" %}
+            </div>
+        </section>
+{% endblock %}

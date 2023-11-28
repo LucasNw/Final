@@ -1,0 +1,12 @@
+Olá {{usuario}}!
+Estamos enviando este e-mail para avisar que a chave da sala não foi entregue
+
+Dados da Retirada
+Horário: {{ horario }}
+Usuario que retirou a cahve: {{ usuario }}
+Local da sala: {{ local }}
+
+Por gentileza realizar a devolução o mais breve possivel!
+
+Controle de Chaves.
+

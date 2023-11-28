@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+    <title>Controle de Chaves</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="navbar-logo is-size-3 has-text-black has-background-primary">
+            <span class="navbar-item has-text-black" href="#">
+                Bem vindo!
+
+            </span>
+
+        </div>
+
+        <div class="section has-background-primary">
+            <div class="container">
+                <nav class="navbar has-background-primary-dark" role="navigation" aria-label="main navigation">
+                    <a class="navbar-item has-text-black" href="/index.html">
+                        Controle de Chaves
+                        <img src="img/chaves.png">
+
+                    </a>
+
+                    <div class="navbar-brand">
+
+                    </div>
+                    <div id="navbarBasicExample" class="navbar-menu has-background-primary-dark">
+                        <div class="navbar-end">
+                            <a class="navbar-item has-text-white has-background-primary-dark" href="/index.html">
+                                Início
+                            </a>
+                            <div class="navbar-item dropdown is-hoverable has-text-white">
+                                <div class="dropdown-trigger">
+                                    <li class="is-inline-block" aria-haspopup="true" aria-controls="dropdown-menu">
+                                        <span>Usuario</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </li>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu-cliente" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="/usuario_cadastrar.html" class="dropdown-item">
+                                            Cadastrar Usuario
+                                        </a>
+                                        <a href="/usuario.html" class="dropdown-item">
+                                            Listar Usuario
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navbar-item dropdown is-hoverable has-text-white">
+                                <div class="dropdown-trigger">
+                                    <li class="is-inline-block" aria-haspopup="true" aria-controls="dropdown-menu">
+                                        <span>Funcionários</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </li>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu-funcionario" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="/funcionario_cadastrar.html" class="dropdown-item">
+                                            Cadastrar Funcionários
+                                        </a>
+                                        <a href="/funcionario.html" class="dropdown-item">
+                                            Listar Funcionários
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navbar-item dropdown is-hoverable has-text-white">
+                                <div class="dropdown-trigger">
+                                    <li class="is-inline-block" aria-haspopup="true" aria-controls="dropdown-menu">
+                                        <span>Entregas</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </li>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu-servico" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="/entregas_cadastrar.html" class="dropdown-item">
+                                            Cadastrar Entregas
+                                        </a>
+                                        <a href="/entregas.html" class="dropdown-item">
+                                            Listar Entregas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navbar-item dropdown is-hoverable has-text-white">
+                                <div class="dropdown-trigger">
+                                    <li class="is-inline-block" aria-haspopup="true" aria-controls="dropdown-menu">
+                                        <span>Chaves</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </li>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu-produto" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="/sala_cadastrar.html" class="dropdown-item">
+                                            Cadastrar Chaves
+                                        </a>
+                                        <a href="/sala.html" class="dropdown-item">
+                                            Listar Chaves
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar-item dropdown is-hoverable has-text-white">
+                                <div class="dropdown-trigger">
+                                    <li class="is-inline-block" aria-haspopup="true" aria-controls="dropdown-menu">
+                                        <span>Avisos</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </li>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu-produto" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="/avisos.html" class="dropdown-item">
+                                            Enviar aviso
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="navbar-item dropdown is-hoverable has-text-white">
+                                <div class="dropdown-trigger">
+                                    <li class="is-inline-block" aria-haspopup="true" aria-controls="dropdown-menu">
+                                        <span>Salas</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </li>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu-agendamento" role="menu"
+                                    style="z-index: 1000;">
+                                    <div class="dropdown-content">
+                                        <a href="/sala_cadastrar.html" class="dropdown-item">
+                                            Cadastrar Salas
+                                        </a>
+                                        <a href="/sala.html" class="dropdown-item">
+                                            Listar Salas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+
+
+    <section>
+        <div class="hero-body has-background-primary-dark">
+            <div class="container has-text-centered">
+        
+                <p class="title is-size-1">Sobre o Sistema</p>
+            </div>
+
+            <div class="section">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column notification is-primary mb-5 mr-3">
+                            <span class="delete"></span>
+                            <h1># Quem Somos</h1>
+
+                            Somos uma empresa líder em tecnologia que fornece soluções de segurança de alta qualidade
+                            para empresas e indivíduos.Trabalhado incansavelmente
+                            para fornecer as melhores soluções de segurança para nossos clientes.
+
+                            Nossa equipe é composta por especialistas altamente qualificados em segurança e tecnologia,
+                            que trabalham juntos para fornecer soluções personalizadas para nossos clientes. Nós nos
+                            orgulhamos de nossa abordagem centrada no cliente e estamos sempre procurando maneiras de
+                            melhorar nossos serviços.
+
+                            Oferecemos uma ampla gama de produtos e serviços, incluindo sistemas de controle de acesso,
+                            fechaduras eletrônicas, chaves inteligentes e muito mais. Todos os nossos produtos são
+                            projetados com a mais alta qualidade e segurança em mente.
+                        </div>
+                        <div class="column notification is-primary mb-5 mr-3">
+                            <span class="delete"></span>
+                            <p>Um sistema de controle de chaves é um conjunto de procedimentos e dispositivos que ajudam
+                                a gerenciar o acesso a áreas restritas ou equipamentos. O objetivo principal é garantir
+                                que apenas pessoas autorizadas tenham acesso a esses recursos. Existem vários tipos de
+                                sistemas de controle de chaves, desde os mais simples até os mais sofisticados.</p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section has-background-primary-light">
+        <div class="container">
+            <div class="level is-mobile">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Usuarios</p>
+                        <p class="title">210</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Funcionários</p>
+                        <p class="title">5</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Chaves</p>
+                        <p class="title">20</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Salas</p>
+                        <p class="title">35</p>
+                    </div>
+                </div>
+
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Chaves</p>
+                        <p class="title">120</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <footer class="footer has-background-primary p-5">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-2 has-text-white">
+                    © 2023 Controle de Chaves
+                </div>
+                <div class="column is-8"></div>
+                <div class="column is-2 has-text-centered">
+                    <span class="icon has-text-warning">
+                        <i class="fab fa-facebook-square fa-2x mr-2"></i>
+                        <i class="fab fa-twitter-square fa-2x mr-2"></i>
+                        <i class="fab fa-instagram-square fa-2x mr-2"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
