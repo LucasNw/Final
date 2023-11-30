@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.contrib import messages
@@ -9,7 +10,9 @@ from chave.models import Chave
 
 
 
-class ChaveView(ListView):
+class ChaveView(PermissionRequiredMixin, ListView):
+    permission_required = 'chave.view_chave'
+    permission_denied_message = 'Vizualizar Chave'
     model = Chave
     template_name = 'chave.html'
 
@@ -27,19 +30,25 @@ class ChaveView(ListView):
             return messages.info(self.request, "Não exixtem chaves cadastrados!")
 
 
-class ChaveAddView(CreateView):
+class ChaveAddView(PermissionRequiredMixin, CreateView):
+    permission_required = 'chave.add_chave'
+    permission_denied_message = 'Cadastrar Chave'
     form_class = ChaveModelForm
     model = Chave
     template_name = 'chave_form.html'
     success_url = reverse_lazy('chaves')
 
-class ChaveUpDateView(UpdateView):
+class ChaveUpDateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'chave.change_chave'
+    permission_denied_message = 'Editar Chave'
     form_class = ChaveModelForm
     model = Chave
     template_name = 'chave_form.html'
     success_url = reverse_lazy('chaves')
 
-class ChaveDeleteView(DeleteView):
+class ChaveDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'chave.delete_chave'
+    permission_denied_message = 'Deletar Chave'
     model = Chave
     template_name = 'chave_apagar.html'
     success_url = reverse_lazy('chaves')

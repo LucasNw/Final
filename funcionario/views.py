@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.paginator import Paginator
 
@@ -9,7 +10,9 @@ from funcionario.forms import FuncionarioModelForm
 from funcionario.models import Funcionario
 
 
-class FuncionariosView(ListView):
+class FuncionariosView(PermissionRequiredMixin, ListView):
+    permission_required = 'funcionario.view_funcionario'
+    permission_denied_message = 'Ver Funcionario'
     model = Funcionario
     template_name = 'funcionarios.html'
 
@@ -27,7 +30,9 @@ class FuncionariosView(ListView):
             return messages.info(self.request, "Não existem funcionarios cadastrados!")
 
 
-class FuncionarioAddView(SuccessMessageMixin, CreateView):
+class FuncionarioAddView(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
+    permission_required = 'funcionario.add_funcionario'
+    permission_denied_message = 'Cadastrar Funcionario'
     form_class = FuncionarioModelForm
     model = Funcionario
     template_name = 'funcionario_form.html'
@@ -35,7 +40,9 @@ class FuncionarioAddView(SuccessMessageMixin, CreateView):
     success_message = 'Funcionario cadastrado com sucesso'
 
 
-class FuncionarioUpDateView(SuccessMessageMixin, UpdateView):
+class FuncionarioUpDateView(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
+    permission_required = 'funcionario.change_funcionario'
+    permission_denied_message = 'Alterar Funcionario'
     form_class = FuncionarioModelForm
     model = Funcionario
     template_name = 'funcionario_form.html'
@@ -43,7 +50,9 @@ class FuncionarioUpDateView(SuccessMessageMixin, UpdateView):
     success_message = 'Funcionario atualizado com sucesso'
 
 
-class FuncionarioDeleteView(SuccessMessageMixin, DeleteView):
+class FuncionarioDeleteView(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
+    permission_required = 'funcionario.delete_funcionario'
+    permission_denied_message = 'Deletar Funcionario'
     model = Funcionario
     template_name = 'funcionario_apagar.html'
     success_url = reverse_lazy('funcionarios')

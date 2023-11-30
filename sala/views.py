@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.contrib import messages
@@ -9,7 +10,9 @@ from sala.models import Sala
 
 
 
-class SalaView(ListView):
+class SalaView(PermissionRequiredMixin, ListView):
+    permission_required = 'sala.view_sala'
+    permission_denied_message = 'Ver sala'
     model = Sala
     template_name = 'sala.html'
 
@@ -28,19 +31,25 @@ class SalaView(ListView):
 
 
 
-class SalaAddView(CreateView):
+class SalaAddView(PermissionRequiredMixin, CreateView):
+    permission_required = 'sala.add_sala'
+    permission_denied_message = 'Cadastrar sala'
     form_class = SalaModelForm
     model = Sala
     template_name = 'sala_form.html'
     success_url = reverse_lazy('salas')
 
-class SalaUpDateView(UpdateView):
+class SalaUpDateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'sala.change_sala'
+    permission_denied_message = 'Alterar sala'
     form_class = SalaModelForm
     model = Sala
     template_name = 'sala_form.html'
     success_url = reverse_lazy('salas')
 
-class SalaDeleteView(DeleteView):
+class SalaDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'sala.delete_sala'
+    permission_denied_message = 'Deletar sala'
     model = Sala
     template_name = 'sala_apagar.html'
     success_url = reverse_lazy('salas')

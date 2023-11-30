@@ -1,0 +1,15 @@
+{% extends "principal.html" %}
+{% load static %}
+{% block content %}
+
+<section class="section">
+        <div class="container">
+            <div class="column is-mobile">
+                <div class="column is-half is-off-set-one-quarter">
+                    <h3 class="title is-size-3"> Controle de permissões </h3>
+                    <h6> Você não tem permissão para acesso <strong> {{ exception }} </strong> no sistema</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

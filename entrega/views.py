@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
@@ -13,7 +14,9 @@ from entrega.forms import EntregaListForm, EntregaModelForm
 from entrega.models import Entrega
 
 
-class EntregaView(ListView):
+class EntregaView(PermissionRequiredMixin, ListView):
+    permission_required = 'entrega.view_chave'
+    permission_denied_message = 'Ver Chave'
     model = Entrega
     template_name = 'entregas.html'
 
@@ -46,21 +49,26 @@ class EntregaView(ListView):
 
 
 
-class EntregaAddView(SuccessMessageMixin, CreateView):
+class EntregaAddView(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
+    permission_required = 'entrega.add_entrega'
+    permission_denied_message = 'Cadastrar entrega'
     form_class = EntregaModelForm
     model = Entrega
     template_name = 'entrega_form.html'
     success_url = reverse_lazy('entregas')
     success_message = 'Entrega cadastrada com sucesso'
 
-class EntregaUpDateView(SuccessMessageMixin, UpdateView):
-    form_class = EntregaModelForm
+class EntregaUpDateView(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
+    permission_denied_message = 'entrega.change_entrega'
+    form_class = EntregaModelForm = 'Editar Entrega'
     model = Entrega
     template_name = 'entrega_form.html'
     success_url = reverse_lazy('entregas')
     success_message = 'Entrega cadastrada com sucesso'
 
-class EntregaDeleteView(SuccessMessageMixin, DeleteView):
+class EntregaDeleteView(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
+    permission_required = 'entrega.delete_entrega'
+    permission_denied_message = 'Deletar entrega'
     model = Entrega
     template_name = 'entrega_apagar.html'
     success_url = reverse_lazy('entregas')

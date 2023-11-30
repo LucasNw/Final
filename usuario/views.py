@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -10,7 +11,9 @@ from usuario.models import Usuario
 
 
 # Create your views here.
-class UsuariosView(ListView):
+class UsuariosView(PermissionRequiredMixin, ListView):
+    permission_required = 'usuario.view_usuario'
+    permission_denied_message = 'Ver usuario'
     model = Usuario
     template_name = 'usuarios.html'
 
@@ -29,6 +32,8 @@ class UsuariosView(ListView):
 
 
 class UsuarioAddView(SuccessMessageMixin, CreateView):
+    permission_required = 'usuario.add_usuario'
+    permission_denied_message = 'Cadastrar usuario'
     form_class = UsuarioModelForm
     model = Usuario
     template_name = 'usuario_form.html'
@@ -38,6 +43,8 @@ class UsuarioAddView(SuccessMessageMixin, CreateView):
 
 
 class UsuarioUpDateView(SuccessMessageMixin, UpdateView):
+    permission_required = 'usuario.change_usuario'
+    permission_denied_message = 'Alterar usuario'
     form_class = UsuarioModelForm
     model = Usuario
     template_name = 'usuario_form.html'
@@ -46,6 +53,8 @@ class UsuarioUpDateView(SuccessMessageMixin, UpdateView):
 
 
 class UsuarioDeleteView(SuccessMessageMixin, DeleteView):
+    permission_required = 'usuario.delete_usuario'
+    permission_denied_message = 'Deletar usuario'
     model = Usuario
     template_name = 'usuario_apagar.html'
     success_url = reverse_lazy('usuarios')
